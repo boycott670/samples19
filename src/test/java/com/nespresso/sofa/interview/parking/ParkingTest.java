@@ -70,4 +70,9 @@ public class ParkingTest
 
         assertFalse(parking.unparkCar(FIRSTUPEDESTRIANUEXITUINDEX));
     }
+	
+	@Test
+    public void testToString() {
+        assertEquals("UUUUU\nU=UU@\n@U=UU\nUUUUU\nUUUUU", parking.toString());
+    }
 }

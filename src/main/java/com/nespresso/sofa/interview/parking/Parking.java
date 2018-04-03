@@ -98,4 +98,38 @@ public final class Parking
 		
 		return false;
 	}
+	
+	@Override
+	public String toString()
+	{
+		final int rows = Double.valueOf(Math.sqrt(bays.length)).intValue();
+		
+		boolean leftToRight = true;
+		
+		final StringBuilder output = new StringBuilder();
+		
+		for (int baysRowIndex = 0 ; baysRowIndex < rows ; baysRowIndex ++)
+		{
+			if (leftToRight)
+			{
+				for (int bayIndex = baysRowIndex * rows ; bayIndex < baysRowIndex * rows + rows ; bayIndex ++)
+				{
+					output.append(bays[bayIndex]);
+				}
+			}
+			else
+			{
+				for (int bayIndex = baysRowIndex * rows + rows - 1 ; bayIndex >= baysRowIndex * rows ; bayIndex --)
+				{
+					output.append(bays[bayIndex]);
+				}
+			}
+			
+			leftToRight = !leftToRight;
+			
+			output.append("\n");
+		}
+		
+		return output.toString().trim();
+	}
 }
